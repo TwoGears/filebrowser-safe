@@ -70,6 +70,9 @@ class S3BotoStorageMixin(StorageMixin):
 
     def isfile(self, name):
         print 'tuka sum file', name
+        print 'Self exists?', self.exists(name)
+        print 'Self size?', self.size(name) > 0
+        print 'Has dot?', '.' in name
         return self.exists(name) and self.size(name) > 0
 
     def isdir(self, name):
