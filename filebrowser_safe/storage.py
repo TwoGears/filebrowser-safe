@@ -69,6 +69,7 @@ class FileSystemStorageMixin(StorageMixin):
 class S3BotoStorageMixin(StorageMixin):
 
     def isfile(self, name):
+        print 'tuka sum file', name
         return self.exists(name) and self.size(name) > 0
 
     def isdir(self, name):
@@ -81,6 +82,7 @@ class S3BotoStorageMixin(StorageMixin):
         if self.isfile(name):
             return False
 
+        print 'tuka sum dir', name
         name = self._normalize_name(self._clean_name(name))
         dirlist = self.bucket.list(self._encode_name(name))
 
